@@ -22,6 +22,6 @@ books = {'apple', 'banana', 'pear'}
 print(books)
 print(type(books))
 
-books = {'apple' : 1000}
+books = {'apple': 1000}
 print(books)
 print(type(books))
