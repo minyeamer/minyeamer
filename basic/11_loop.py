@@ -137,5 +137,3 @@ print()
 
 for fruit, color in fruits.items():
     print("%s의 색은 %s" % (fruit, color), end=', ')
-
-
