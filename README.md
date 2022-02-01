@@ -1,3 +1,3 @@
-# python_test
+# python_study
 
 Hello, World!
