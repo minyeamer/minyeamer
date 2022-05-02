@@ -1,3 +1,3 @@
-# python_study
+# Hello, I'm minyeamer
 
-Hello, World!
+![Anurag's-gitHub-stats](https://github-readme-stats.vercel.app/api?username=minyeamer&show_icons=true&theme=dark)
