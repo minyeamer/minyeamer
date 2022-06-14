@@ -47,9 +47,9 @@ Here are some ideas to get you started:
 -->
 
 <br>
-<hr>
-<br>
 
-<a href="https://github.com/anuraghazra/github-readme-stats" style="display:block;text-align:center;">
-  <img src="https://github-readme-stats.vercel.app/api?username=minyeamer&show_icons=true&theme=dark" />
-</a>
+<p align="center">
+  <a href="https://github.com/anuraghazra/github-readme-stats" align="center">
+    <img src="https://github-readme-stats.vercel.app/api?username=minyeamer&show_icons=true&theme=dark" />
+  </a>
+</p>
