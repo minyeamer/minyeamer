@@ -46,13 +46,12 @@ Here are some ideas to get you started:
 <br>
 <h3 align="center">📑 Repositories 📑</h3>
 
-<table style="border:hidden!important;">
+<table id="first_table" align="center" style="border:hidden!important;">
 <tr id="header">
   <th>ML/DL</th>
   <th>Service</th>
-  <th>Study</th>
 </tr>
-<tr id="first line">
+<tr id="first_line">
   <td>
     <a href="https://github.com/minyeamer/credit-now" target="_blank">
       <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=credit-now&theme=dark" />
@@ -63,13 +62,8 @@ Here are some ideas to get you started:
       <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=dinut&theme=dark" />
     </a>
   </td>
-  <td>
-    <a href="https://github.com/minyeamer/ai-school" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=ai-school&theme=dark" />
-    </a>
-  </td>
 </tr>
-<tr id="second line">
+<tr id="second_line">
   <td>
     <a href="https://github.com/minyeamer/predict-cons" target="_blank">
       <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=predict-cons&theme=dark" />
@@ -80,13 +74,8 @@ Here are some ideas to get you started:
       <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=gourmaid&theme=dark" />
     </a>
   </td>
-  <td>
-    <a href="https://github.com/minyeamer/problem-solving" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=problem-solving&theme=dark" />
-    </a>
-  </td>
 </tr>
-<tr id="third line">
+<tr id="third_line">
   <td>
     <a href="https://github.com/minyeamer/titanic" target="_blank">
       <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=titanic&theme=dark" />
@@ -97,9 +86,48 @@ Here are some ideas to get you started:
       <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=recruit-pirates&theme=dark" />
     </a>
   </td>
+</tr>
+</table>
+
+
+<table id="second_table" align="center" style="border:hidden!important;">
+<tr id="header">
+  <th>Study</th>
+  <th>Interested</th>
+</tr>
+<tr id="first_line">
+  <td>
+    <a href="https://github.com/minyeamer/ai-school" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=ai-school&theme=dark" />
+    </a>
+  </td>
+  <td>
+    <a href="https://github.com/yt-dlp/yt-dlp" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=yt-dlp&repo=yt-dlp&theme=dark" />
+    </a>
+  </td>
+</tr>
+<tr id="second_line">
+  <td>
+    <a href="https://github.com/minyeamer/problem-solving" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=problem-solving&theme=dark" />
+    </a>
+  </td>
+  <td>
+    <a href="https://github.com/nicfit/eyeD3" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=nicfit&repo=eyeD3&theme=dark" />
+    </a>
+  </td>
+</tr>
+<tr id="third_line">
   <td>
     <a href="https://github.com/minyeamer/til" target="_blank">
       <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=til&theme=dark" />
+    </a>
+  </td>
+  <td>
+    <a href="https://github.com/ultralytics/yolov5" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=ultralytics&repo=yolov5&theme=dark" />
     </a>
   </td>
 </tr>
@@ -109,9 +137,9 @@ Here are some ideas to get you started:
 <h3 align="center">‍💫 Status ‍💫</h3>
 <p align="center">
   <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">
-    <img align="middle" src="https://github-readme-stats.vercel.app/api?username=minyeamer&layout=compact&show_icons=true&theme=dark" />
+    <img align="middle" width="50%" src="https://github-readme-stats.vercel.app/api?username=minyeamer&layout=compact&show_icons=true&theme=dark" />
   </a>&nbsp&nbsp
   <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">
-    <img align="middle" src="https://github-readme-stats.vercel.app/api/top-langs/?username=minyeamer&layout=compact&theme=vision-friendly-dark" />
+    <img align="middle" width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=minyeamer&layout=compact&theme=vision-friendly-dark" />
   </a>
 </p>
