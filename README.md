@@ -1,7 +1,6 @@
 <h3 align="center">🛠 Tech Stack 🛠</h3>
 
 <h4 align="center">👾 Programming Language 👾</h4>
-
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3766AB?style=flat-square&logo=Python&logoColor=white"/></a>&nbsp
   <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=C%2B%2B&logoColor=white"/></a>&nbsp
@@ -12,7 +11,6 @@
 </p>
 
 <h4 align="center">🧠 Framework & Library 🧠</h4>
-
 <p align="center">
   <img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=NumPy&logoColor=white"/></a>&nbsp
   <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=Pandas&logoColor=white"/></a>&nbsp
@@ -27,7 +25,6 @@
 </p>
 
 <h4 align="center">✨ Tools ✨</h4>
-
 <p align="center">
   <img src="https://img.shields.io/badge/Photoshop-31A8FF?style=flat-square&logo=adobephotoshop&logoColor=white"/></a>&nbsp
   <img src="https://img.shields.io/badge/Logic Pro-000000?style=flat-square&logo=apple&logoColor=white"/></a>&nbsp
@@ -47,8 +44,74 @@ Here are some ideas to get you started:
 -->
 
 <br>
+<h3 align="center">📑 Repositories 📑</h3>
+
+<table style="border:hidden!important;">
+<tr id="header">
+  <th>ML/DL</th>
+  <th>Service</th>
+  <th>Study</th>
+</tr>
+<tr id="first line">
+  <td>
+    <a href="https://github.com/minyeamer/credit-now" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=credit-now&theme=dark" />
+    </a>
+  </td>
+  <td>
+    <a href="https://github.com/minyeamer/dinut" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=dinut&theme=dark" />
+    </a>
+  </td>
+  <td>
+    <a href="https://github.com/minyeamer/ai-school" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=ai-school&theme=dark" />
+    </a>
+  </td>
+</tr>
+<tr id="second line">
+  <td>
+    <a href="https://github.com/minyeamer/predict-cons" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=predict-cons&theme=dark" />
+    </a>
+  </td>
+  <td>
+    <a href="https://github.com/minyeamer/gourmaid" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=gourmaid&theme=dark" />
+    </a>
+  </td>
+  <td>
+    <a href="https://github.com/minyeamer/problem-solving" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=problem-solving&theme=dark" />
+    </a>
+  </td>
+</tr>
+<tr id="third line">
+  <td>
+    <a href="https://github.com/minyeamer/titanic" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=titanic&theme=dark" />
+    </a>
+  </td>
+  <td>
+    <a href="https://github.com/minyeamer/recruit-pirates" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=recruit-pirates&theme=dark" />
+    </a>
+  </td>
+  <td>
+    <a href="https://github.com/minyeamer/til" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=til&theme=dark" />
+    </a>
+  </td>
+</tr>
+</table>
+
+<br>
+<h3 align="center">‍💫 Status ‍💫</h3>
 <p align="center">
   <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">
-    <img src="https://github-readme-stats.vercel.app/api?username=minyeamer&show_icons=true&theme=dark" />
+    <img align="middle" src="https://github-readme-stats.vercel.app/api?username=minyeamer&layout=compact&show_icons=true&theme=dark" />
+  </a>&nbsp&nbsp
+  <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">
+    <img align="middle" src="https://github-readme-stats.vercel.app/api/top-langs/?username=minyeamer&layout=compact&theme=vision-friendly-dark" />
   </a>
 </p>
