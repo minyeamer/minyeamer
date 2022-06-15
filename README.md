@@ -114,8 +114,8 @@ Here are some ideas to get you started:
     </a>
   </td>
   <td>
-    <a href="https://github.com/nicfit/eyeD3" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=nicfit&repo=eyeD3&theme=dark" />
+    <a href="https://github.com/librosa/librosa" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=librosa&repo=librosa&theme=dark" />
     </a>
   </td>
 </tr>
