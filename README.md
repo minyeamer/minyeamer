@@ -140,6 +140,6 @@ Here are some ideas to get you started:
     <img align="middle" width="50%" src="https://github-readme-stats.vercel.app/api?username=minyeamer&layout=compact&show_icons=true&theme=dark" />
   </a>&nbsp&nbsp
   <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">
-    <img align="middle" width="50%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=minyeamer&layout=compact&theme=vision-friendly-dark" />
+    <img align="middle" width="45%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=minyeamer&layout=compact&theme=vision-friendly-dark" />
   </a>
 </p>
