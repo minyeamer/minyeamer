@@ -97,8 +97,8 @@ Here are some ideas to get you started:
 </tr>
 <tr id="first_line">
   <td>
-    <a href="https://github.com/minyeamer/ai-school" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=ai-school&theme=dark" />
+    <a href="https://github.com/minyeamer/til" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=til&theme=dark" />
     </a>
   </td>
   <td>
@@ -121,8 +121,8 @@ Here are some ideas to get you started:
 </tr>
 <tr id="third_line">
   <td>
-    <a href="https://github.com/minyeamer/til" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=til&theme=dark" />
+    <a href="https://github.com/minyeamer/ai-school" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=ai-school&theme=dark" />
     </a>
   </td>
   <td>
