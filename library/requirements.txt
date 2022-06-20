@@ -1,0 +1,68 @@
+# Homebrew
+# ffmpeg
+# lightgbm
+
+# Base
+numpy
+pandas
+pandas-profiling
+tqdm
+joblib
+
+# Jupyter Notebook
+jupyter
+Markdown
+
+# ML/DL
+scikit-learn
+xgboost
+lightgbm
+catboost
+optuna
+vecstack
+# lime
+
+# Plotting
+matplotlib
+plotly
+seaborn
+
+# Vision
+opencv-python
+Pillow
+
+# Audio
+librosa
+SpeechRecognition
+# PyAudio
+
+# Video
+ffmpeg
+yt-dlp
+
+# TensorFlow
+tensorflow-macos
+tensorflow-metal
+visualkeras
+# autokeras
+# keras_tuner
+
+# Torch
+torch
+torchvision
+torchaudio
+
+# Pycaret
+# pycaret==2.3.10
+# jinja2==3.1.2
+
+# Web
+beautifulsoup4
+requests
+urllib3
+streamlit
+
+# Django
+Django==3.2
+django-bootstrap4
+django-environ
