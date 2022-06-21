@@ -53,8 +53,8 @@ Here are some ideas to get you started:
 </tr>
 <tr id="first_line">
   <td>
-    <a href="https://github.com/minyeamer/credit-now" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=credit-now&theme=dark" />
+    <a href="https://github.com/minyeamer/audio-mnist" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=caudio-mnist&theme=dark" />
     </a>
   </td>
   <td>
@@ -65,10 +65,11 @@ Here are some ideas to get you started:
 </tr>
 <tr id="second_line">
   <td>
-    <a href="https://github.com/minyeamer/predict-cons" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=predict-cons&theme=dark" />
+    <a href="https://github.com/minyeamer/credit-now" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=credit-now&theme=dark" />
     </a>
   </td>
+  <td>
   <td>
     <a href="https://github.com/minyeamer/gourmaid" target="_blank">
       <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=gourmaid&theme=dark" />
@@ -77,8 +78,8 @@ Here are some ideas to get you started:
 </tr>
 <tr id="third_line">
   <td>
-    <a href="https://github.com/minyeamer/titanic" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=titanic&theme=dark" />
+    <a href="https://github.com/minyeamer/predict-cons" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=predict-cons&theme=dark" />
     </a>
   </td>
   <td>
