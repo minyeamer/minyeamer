@@ -54,7 +54,7 @@ Here are some ideas to get you started:
 <tr id="first_line">
   <td>
     <a href="https://github.com/minyeamer/audio-mnist" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=caudio-mnist&theme=dark" />
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=audio-mnist&theme=dark" />
     </a>
   </td>
   <td>
@@ -69,7 +69,6 @@ Here are some ideas to get you started:
       <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=credit-now&theme=dark" />
     </a>
   </td>
-  <td>
   <td>
     <a href="https://github.com/minyeamer/gourmaid" target="_blank">
       <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=gourmaid&theme=dark" />
