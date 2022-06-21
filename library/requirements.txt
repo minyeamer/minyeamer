@@ -35,6 +35,7 @@ Pillow
 librosa
 SpeechRecognition
 # PyAudio
+# playsound
 
 # Video
 ffmpeg
