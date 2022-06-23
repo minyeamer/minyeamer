@@ -8,6 +8,7 @@ pandas
 pandas-profiling
 tqdm
 joblib
+pyautogui
 
 # Jupyter Notebook
 jupyter
@@ -44,6 +45,7 @@ yt-dlp
 # TensorFlow
 tensorflow-macos
 tensorflow-metal
+tensorflow-addons
 visualkeras
 # autokeras
 # keras_tuner
