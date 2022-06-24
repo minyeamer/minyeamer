@@ -28,6 +28,13 @@ matplotlib
 plotly
 seaborn
 
+# NLP
+nltk
+# nltk.download()
+jpype==1.3.0
+konlpy
+wordcloud
+
 # Vision
 opencv-python
 Pillow
