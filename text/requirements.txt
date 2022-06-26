@@ -5,6 +5,7 @@
 # Base
 numpy
 pandas
+openpyxl
 pandas-profiling
 tqdm
 joblib
