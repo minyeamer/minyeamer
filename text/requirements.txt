@@ -30,6 +30,7 @@ plotly
 seaborn
 
 # NLP
+gensim
 nltk
 # nltk.download()
 jpype==1.3.0
