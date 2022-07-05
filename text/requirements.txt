@@ -51,13 +51,16 @@ SpeechRecognition
 ffmpeg
 yt-dlp
 
+# Keras
+visualkeras
+# autokeras
+# keras_tuner
+
 # TensorFlow
 tensorflow-macos
 tensorflow-metal
 tensorflow-addons
-visualkeras
-# autokeras
-# keras_tuner
+tensorflow-hub
 
 # Torch
 torch
