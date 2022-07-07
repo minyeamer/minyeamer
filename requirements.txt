@@ -3,10 +3,6 @@
 # lightgbm
 
 # Base
-numpy
-pandas
-openpyxl
-pandas-profiling
 tqdm
 joblib
 pyautogui
@@ -14,6 +10,20 @@ pyautogui
 # Jupyter Notebook
 jupyter
 Markdown
+
+# Math
+numpy
+sympy
+
+# Data
+pandas
+openpyxl
+pandas-profiling
+
+# Plotting
+matplotlib
+plotly
+seaborn
 
 # ML/DL
 scikit-learn
@@ -23,11 +33,6 @@ catboost
 optuna
 vecstack
 # lime
-
-# Plotting
-matplotlib
-plotly
-seaborn
 
 # NLP
 gensim
