@@ -38,9 +38,10 @@ vecstack
 gensim
 nltk
 # nltk.download()
-jpype==1.3.0
+jpype1==1.3.0
 konlpy
 wordcloud
+# transformers
 
 # Vision
 opencv-python
