@@ -69,9 +69,10 @@ tensorflow-addons
 tensorflow-hub
 
 # Torch
-torch
-torchvision
-torchaudio
+# https://pytorch.org/get-started/locally/
+# torch
+# torchvision
+# torchaudio
 
 # Pycaret
 # pycaret==2.3.10
