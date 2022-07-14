@@ -89,50 +89,6 @@ Here are some ideas to get you started:
 </tr>
 </table>
 
-
-<table id="second_table" align="center" style="border:hidden!important;">
-<tr id="header">
-  <th>Study</th>
-  <th>Interested</th>
-</tr>
-<tr id="first_line">
-  <td>
-    <a href="https://github.com/minyeamer/til" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=til&theme=dark" />
-    </a>
-  </td>
-  <td>
-    <a href="https://github.com/yt-dlp/yt-dlp" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=yt-dlp&repo=yt-dlp&theme=dark" />
-    </a>
-  </td>
-</tr>
-<tr id="second_line">
-  <td>
-    <a href="https://github.com/minyeamer/problem-solving" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=problem-solving&theme=dark" />
-    </a>
-  </td>
-  <td>
-    <a href="https://github.com/librosa/librosa" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=librosa&repo=librosa&theme=dark" />
-    </a>
-  </td>
-</tr>
-<tr id="third_line">
-  <td>
-    <a href="https://github.com/minyeamer/ai-school" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=ai-school&theme=dark" />
-    </a>
-  </td>
-  <td>
-    <a href="https://github.com/ultralytics/yolov5" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=ultralytics&repo=yolov5&theme=dark" />
-    </a>
-  </td>
-</tr>
-</table>
-
 <br>
 <h3 align="center">‍💫 Status ‍💫</h3>
 <p align="center">
