@@ -35,13 +35,15 @@ vecstack
 # lime
 
 # NLP
-gensim
-nltk
-# nltk.download()
+nltk # nltk.download()
 jpype1==1.3.0
 konlpy
-wordcloud
+gensim
+sentencepiece
 # transformers
+wordcloud
+googletrans==4.0.0-rc1
+nlpaug
 
 # Vision
 opencv-python
@@ -73,6 +75,7 @@ tensorflow-hub
 # torch
 # torchvision
 # torchaudio
+# torchtext
 
 # Pycaret
 # pycaret==2.3.10
