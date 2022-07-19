@@ -19,11 +19,13 @@ sympy
 pandas
 openpyxl
 pandas-profiling
+# pandas_datareader
 
 # Plotting
 matplotlib
 plotly
 seaborn
+statsmodels
 
 # ML/DL
 scikit-learn
@@ -43,7 +45,9 @@ sentencepiece
 # transformers
 wordcloud
 googletrans==4.0.0-rc1
+translate
 nlpaug
+soynlp
 
 # Vision
 opencv-python
@@ -76,6 +80,8 @@ tensorflow-hub
 # torchvision
 # torchaudio
 # torchtext
+pytorch_lightning
+lightning-flash
 
 # Pycaret
 # pycaret==2.3.10
