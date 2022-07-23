@@ -53,8 +53,8 @@ Here are some ideas to get you started:
 </tr>
 <tr id="first_line">
   <td>
-    <a href="https://github.com/minyeamer/abc-generator" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=abc-generator&theme=dark" />
+    <a href="https://github.com/minyeamer/auto-rating" target="_blank">
+      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=auto-rating&theme=dark" />
     </a>
   </td>
   <td>
