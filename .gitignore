@@ -112,4 +112,13 @@ datasets/
 .idea/
 __MACOSX/
 
+# os temp files
 .DS_Store
+~$*.docx
+~$*.pptx
+~$*.xlsx
+
+# user temp files
+temp/
+debug.ipynb
+debug.sh
