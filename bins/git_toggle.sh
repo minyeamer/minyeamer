@@ -1,18 +1,22 @@
 #!/bin/bash
 
-echo "old email"
-old=`git config user.email`
-echo $old
+echo "[old info]"
+old_name=`git config user.name`
+echo $old_name
+git config user.email
 
-if [ $old == "minyeamer@gmail.com" ]
+if [ $old_name == "minyeamer" ]
 then
-  new="kimmy9809@gmail.com"
+  new_name="minywork"
+  new_email="kimmy9809@gmail.com"
 else
-  new="minyeamer@gmail.com"
+  new_name="minyeamer"
+  new_email="minyeamer@gmail.com"
 fi
 
-git config --global user.email $new
-# git config --global user.name minyeamer
+git config --global user.name $new_name
+git config --global user.email $new_email
 
-echo "new email"
+echo "[new info]"
+git config user.name
 git config user.email
