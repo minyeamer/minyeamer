@@ -1,3 +1,5 @@
+#!/bin/bash
+
 git filter-branch --env-filter '
 OLD_EMAIL="old@gmail.com"
 NOW_NAME="name"
