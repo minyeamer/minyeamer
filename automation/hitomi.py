@@ -157,7 +157,7 @@ if __name__ == "__main__":
     print("Start downloading images")
     start = time.time()
     downloader = HitomiDownloader(images=driver.images, path=download_path)
-    downloader.download()
+    asyncio.run(downloader.download())
     downloader.log_json()
     print("Completely downloaded images")
     print(f"Elapsed time: {round(time.time()-start,1)}s")
