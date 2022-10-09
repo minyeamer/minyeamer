@@ -86,7 +86,8 @@ class HitomiDriver(webdriver.Chrome):
         pages = len(self.find_elements(By.CSS_SELECTOR, "select#single-page-select > option"))
 
         artist = f"[{artist}]" if '/' not in artist else str()
-        dir = self.root / " ".join([artist, title, f"({id})"]).strip()
+        invalid = re.compile("[\\/:*?\"<>|]")
+        dir = self.root / invalid.sub("", " ".join([artist, title, f"({id})"])).strip()
         dir.mkdir(exist_ok=True)
 
         for page in range(1, pages+1):
@@ -101,7 +102,7 @@ class HitomiDriver(webdriver.Chrome):
 
     def log_json(self):
         path = self.root / DRIVER_LOG
-        history = max([int(id) for id in self.images])
+        history = max([int(image["id"]) for image in self.images])
         log = {"history":history, "images":self.images, "results":self.results, "errors":self.errors}
         with open(path, "w", encoding="utf-8") as f:
             json.dump(log, f, ensure_ascii=False, indent=2)
