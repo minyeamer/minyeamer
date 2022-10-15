@@ -38,7 +38,8 @@ HEADERS = lambda id=str(): {
 
 class HitomiDriver(webdriver.Chrome):
     def __init__(self, history: str, path: str):
-        service = Service(executable_path=ChromeDriverManager().install())
+        try: service = Service(executable_path=ChromeDriverManager().install())
+        except: service = Service(executable_path="./chromedriver")
         super().__init__(service=service)
         self.root = Path(path)
         self.root.mkdir(exist_ok=True)
@@ -121,6 +122,11 @@ class HitomiDownloader():
             await tqdm.gather(*[self.fetch_image(session, **image) for image in self.images])
 
     async def fetch_image(self, session: aiohttp.ClientSession, id: str, url: str, path: str):
+        with open("log_image.json", "r", encoding="utf-8") as f:
+            hist = json.loads("".join([line for line in f.readlines()]))
+        hist = [i["path"] for i in hist["images"]]
+        if path not in hist:
+            return
         try:
             while True:
                 async with session.get(url, headers=HEADERS(id=id)) as response:
