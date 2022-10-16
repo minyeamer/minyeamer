@@ -122,20 +122,14 @@ class HitomiDownloader():
             await tqdm.gather(*[self.fetch_image(session, **image) for image in self.images])
 
     async def fetch_image(self, session: aiohttp.ClientSession, id: str, url: str, path: str):
-        with open("log_image.json", "r", encoding="utf-8") as f:
-            hist = json.loads("".join([line for line in f.readlines()]))
-        hist = [i["path"] for i in hist["images"]]
-        if path not in hist:
-            return
         try:
-            while True:
+            while not os.path.exists(path):
                 async with session.get(url, headers=HEADERS(id=id)) as response:
                     if response.status != 200:
                         await asyncio.sleep(0.5)
                         continue
                     async with aiofiles.open(path, mode='wb') as f:
                         await f.write(await response.read())
-                    break
         except Exception as e:
             self.errors.append({"id":id, "url":url, "path":path, "error":str(e)})
 
@@ -150,20 +144,36 @@ class HitomiDownloader():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Hitomi Downloader')
     parser.add_argument("--h", "--history", dest="history", type=str)
+    parser.add_argument("--m", "--mode", dest="mode", type=str, default="default", required=False)
     args = parser.parse_args()
     download_path = os.path.join(os.getcwd(), "hitomi_downloaded")
 
-    print("Start Collecting image links on web browser")
-    start = time.time()
-    driver = HitomiDriver(history=args.history, path=download_path)
-    driver.start_requests()
-    print("Completely collected image links")
-    print(f"Elapsed time: {round(time.time()-start,1)}s")
-    driver.log_json()
+    if args.mode in ["default"]:
+        print("Start Collecting image links on web browser")
+        start = time.time()
+        driver = HitomiDriver(history=args.history, path=download_path)
+        driver.start_requests()
+        print("Completely collected image links")
+        print(f"Elapsed time: {round(time.time()-start,1)}s")
+        driver.log_json()
+
+    driver_log = os.path.join(download_path, DRIVER_LOG)
+    download_log = os.path.join(download_path, DOWNLOAD_LOG)
+    if args.mode in ["default"]:
+        images = driver.images
+    elif args.mode in ["recovery"] and os.path.exists(driver_log):
+        with open(driver_log, "r", encoding="utf-8") as f:
+            log = json.loads("".join([line for line in f.readlines()]))
+            images = log["images"]
+    elif args.mode in ["download"] and os.path.exists(download_log):
+        with open(download_log, "r", encoding="utf-8") as f:
+            log = json.loads("".join([line for line in f.readlines()]))
+            images = log["images"]
+    else: raise Exception("Invalid mode entered:", args.mode)
 
     print("Start downloading images")
     start = time.time()
-    downloader = HitomiDownloader(images=driver.images, path=download_path)
+    downloader = HitomiDownloader(images=images, path=download_path)
     asyncio.run(downloader.download())
     downloader.log_json()
     print("Completely downloaded images")
