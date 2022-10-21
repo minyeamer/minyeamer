@@ -121,7 +121,7 @@ class HitomiDownloader():
         async with aiohttp.ClientSession() as session:
             await tqdm.gather(*[self.fetch_image(session, **image) for image in self.images])
 
-    async def fetch_image(self, session: aiohttp.ClientSession, id: str, url: str, path: str):
+    async def fetch_image(self, session: aiohttp.ClientSession, id: str, url: str, path: str, **kwargs):
         try:
             while not os.path.exists(path):
                 async with session.get(url, headers=HEADERS(id=id)) as response:
@@ -142,7 +142,7 @@ class HitomiDownloader():
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Hitomi Downloader')
+    parser = argparse.ArgumentParser(description="Hitomi Downloader")
     parser.add_argument("--h", "--history", dest="history", type=str)
     parser.add_argument("--m", "--mode", dest="mode", type=str, default="default", required=False)
     args = parser.parse_args()
