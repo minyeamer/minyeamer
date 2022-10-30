@@ -1,11 +1,13 @@
-from typing import Dict, List
+from typing import Dict, List, Optional
 from contextlib import suppress
 from pathlib import Path
 import argparse
 import json
-import time
-import re
 import os
+import re
+import shutil
+import time
+
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -57,11 +59,13 @@ class HitomiDriver(webdriver.Chrome):
         except KeyboardInterrupt:
             self.close()
 
-    def fetch_index(self) -> List[Dict[str,str]]:
-        self.get(f"https://hitomi.la/index-korean.html?page={str(self.page)}")
-        time.sleep(2)
+    def fetch_index(self, images: Optional[List]=list()) -> List[Dict[str,str]]:
+        if not images:
+            self.get(f"https://hitomi.la/index-korean.html?page={str(self.page)}")
+            time.sleep(2)
 
-        for manga in self.parse_manga():
+        images = images if images else self.parse_manga()
+        for manga in images:
             if manga.get("id") == self.history:
                 raise KeyboardInterrupt()
             try:
@@ -81,14 +85,15 @@ class HitomiDriver(webdriver.Chrome):
                 })
         return manga_info
 
-    def parse_image(self, id: str, title: str, artist: str):
+    def parse_image(self, id: str, title=str(), artist=str(), path=str(), **kwargs):
         self.get(f"https://hitomi.la/reader/{id}.html")
         time.sleep(1)
         pages = len(self.find_elements(By.CSS_SELECTOR, "select#single-page-select > option"))
 
         artist = f"[{artist}]" if '/' not in artist else str()
         invalid = re.compile("[\\/:*?\"<>|]")
-        dir = self.root / invalid.sub("", " ".join([artist, title, f"({id})"])).strip()
+        if path: path = os.path.split(path)[0] if os.path.splitext(path)[1] else path
+        dir = Path(path) if path else self.root / invalid.sub("", " ".join([artist, title, f"({id})"])).strip()
         dir.mkdir(exist_ok=True)
 
         for page in range(1, pages+1):
@@ -147,6 +152,8 @@ if __name__ == "__main__":
     parser.add_argument("--m", "--mode", dest="mode", type=str, default="default", required=False)
     args = parser.parse_args()
     download_path = os.path.join(os.getcwd(), "hitomi_downloaded")
+    driver_log = os.path.join(download_path, DRIVER_LOG)
+    download_log = os.path.join(download_path, DOWNLOAD_LOG)
 
     if args.mode in ["default"]:
         print("Start Collecting image links on web browser")
@@ -156,15 +163,24 @@ if __name__ == "__main__":
         print("Completely collected image links")
         print(f"Elapsed time: {round(time.time()-start,1)}s")
         driver.log_json()
+    elif args.mode in ["refresh"]:
+        with open(download_log, "r", encoding="utf-8") as f:
+            log = json.loads("".join([line for line in f.readlines()]))
+        driver = HitomiDriver(history=args.history, path=download_path)
+        visited = set()
+        for image in tqdm(log["images"]):
+            if isinstance(image,dict) and image.get("id") not in visited:
+                driver.fetch_index([image])
+                visited.add(image.get("id"))
+        driver.close()
+        shutil.copy(driver_log, driver_log.replace("hitomi_downloaded/",""))
+        driver.log_json()
 
-    driver_log = os.path.join(download_path, DRIVER_LOG)
-    download_log = os.path.join(download_path, DOWNLOAD_LOG)
-    if args.mode in ["default"]:
+    if args.mode in ["default", "refresh"]:
         images = driver.images
     elif args.mode in ["recovery"] and os.path.exists(driver_log):
         with open(driver_log, "r", encoding="utf-8") as f:
             log = json.loads("".join([line for line in f.readlines()]))
-            images = log["images"]
     elif args.mode in ["download"] and os.path.exists(download_log):
         with open(download_log, "r", encoding="utf-8") as f:
             log = json.loads("".join([line for line in f.readlines()]))
