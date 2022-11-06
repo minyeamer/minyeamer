@@ -11,6 +11,7 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from webdriver_manager.chrome import ChromeDriverManager
@@ -39,7 +40,8 @@ HEADERS = lambda id=str(): {
 
 
 class HitomiDriver(webdriver.Chrome):
-    def __init__(self, history: str, path: str):
+    def __init__(self, history: str, path: str, **kwargs):
+        super().__init__(**kwargs)
         try: service = Service(executable_path=ChromeDriverManager().install())
         except: service = Service(executable_path="./chromedriver")
         super().__init__(service=service)
@@ -92,7 +94,7 @@ class HitomiDriver(webdriver.Chrome):
 
         artist = f"[{artist}]" if '/' not in artist else str()
         invalid = re.compile("[\\/:*?\"<>|]")
-        if path: path = os.path.split(path)[0] if os.path.splitext(path)[1] else path
+        if path: path = re.sub("/\d+\.webp$", "", path)
         dir = Path(path) if path else self.root / invalid.sub("", " ".join([artist, title, f"({id})"])).strip()
         dir.mkdir(exist_ok=True)
 
@@ -154,11 +156,13 @@ if __name__ == "__main__":
     download_path = os.path.join(os.getcwd(), "hitomi_downloaded")
     driver_log = os.path.join(download_path, DRIVER_LOG)
     download_log = os.path.join(download_path, DOWNLOAD_LOG)
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
 
     if args.mode in ["default"]:
         print("Start Collecting image links on web browser")
         start = time.time()
-        driver = HitomiDriver(history=args.history, path=download_path)
+        driver = HitomiDriver(history=args.history, path=download_path, chrome_options=chrome_options)
         driver.start_requests()
         print("Completely collected image links")
         print(f"Elapsed time: {round(time.time()-start,1)}s")
@@ -166,7 +170,7 @@ if __name__ == "__main__":
     elif args.mode in ["refresh"]:
         with open(download_log, "r", encoding="utf-8") as f:
             log = json.loads("".join([line for line in f.readlines()]))
-        driver = HitomiDriver(history=args.history, path=download_path)
+        driver = HitomiDriver(history=args.history, path=download_path, chrome_options=chrome_options)
         visited = set()
         for image in tqdm(log["images"]):
             if isinstance(image,dict) and image.get("id") not in visited:
