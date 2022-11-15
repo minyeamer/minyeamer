@@ -28,7 +28,7 @@ JSON_LOG = '{"levelname":"%(levelname)s", "funcName":"%(funcName)s", "message":"
 HEADERS = lambda url: {
     "authority": urlparse(url).hostname,
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "accept-language": "en-US,en;q=0.9,ko-KR;q=0.8,ko;q=0.7",
+    "accept-language": "ja-JP,ja;en-US,en;q=0.9,ko-KR;q=0.8,ko;q=0.7",
     "sec-ch-ua": '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
     "sec-ch-ua-mobile": "?0",
     "sec-ch-ua-platform": '"macOS"',
@@ -194,7 +194,7 @@ class NicoDownloader(YtDlpDownloader):
         info["tags"] = [tag.get("name") for tag in self.hier_get(data, ["tag","items"], list())
             if isinstance(tag, dict) and tag.get("name") in VOCALOIDS]
         artist = ', '.join(info["tags"] if info["tags"] else [voca for voca in VOCALOIDS if voca in info["title"]])
-        info["artist"] = info.pop("composer") if "歌ってみた" in info["title"] else \
+        info["artist"] = info.pop("composer") if True in [match in info["title"] for match in UTAITE] else \
                             " feat. ".join([info["composer"], artist]).strip()
         self.logger.debug(info)
         return info
@@ -243,7 +243,7 @@ class CustomLogger(logging.Logger):
 
 
 VOCALOIDS = {
-    'Flower','Fukase','GUMI','GUMI English','GUMI sweet','Gumi English','IA','IA ROCKS',
+    '#kzn','Fιφne','Flower','Fukase','GUMI','GUMI English','GUMI sweet','Gumi English','IA','IA ROCKS',
     'KAFU','KAITO','Kaori','Ken','Kevin','LOLA','LUMi','Lily','MEIKO','Mew','Minus',
     'ONE','Oliver','Rana','Ruby','Saki AI','VY1','VY1V3','VY1V4','VY2','VY2V3','SeeU','UNI',
     'flower','kaori','시우','시유','유니','이지음','카일린','さとうささら','ずんだもん','ギャラ子','ギャラ子 NEO',
@@ -253,6 +253,8 @@ VOCALOIDS = {
     '泠鸢','洛天依','海伊','猫村いろは','琴葉茜','琴葉葵','留音ロッカ','神威がくぽ','紲星あかり','結月ゆかり',
     '苍穹','草薙寧々','言和','诗岸','赤羽','重音テト','鏡音リン','鏡音レン','铃霜','闇音レンリ','青溯',
     '音街ウナ','香鈴','鳴花ヒメ','鳴花ミコト','鸾明',}
+
+UTAITE = ["歌って", "歌ってみた", "歌いました"]
 
 
 def main():
