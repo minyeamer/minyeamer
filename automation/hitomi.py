@@ -22,7 +22,7 @@ import aiohttp
 import aiofiles
 import requests
 
-ROOT = os.path.join(os.getcwd(), "hitomi_downloaded")
+ROOT = os.path.join(os.getcwd(), "downloaded")
 URLS_LOG = "urls.txt"
 DRIVER_LOG = "log.json"
 DOWNLOAD_LOG = "log_image.json"
@@ -86,6 +86,7 @@ class HitomiDriver(webdriver.Chrome):
             self.execute_script(CLEAR_SCRIPT)
             self.get(INDEX_URL(page))
             self.refresh()
+            time.sleep(0.5)
             logs = self.execute_script(LOG_SCRIPT)
             for log in logs:
                 id = re_get(GALLERY_PATTERN, get(log,"name"))
@@ -115,6 +116,7 @@ class HitomiDriver(webdriver.Chrome):
         for page in range(1, 100):
             self.get(GALLERY_URL(id, page))
             self.refresh()
+            time.sleep(0.5)
             logs = self.execute_script(LOG_SCRIPT)
             cur = len([get(log,"name") for log in logs if THUMB_PATTERN.search(get(log,"name"))])
             if (cur-prev) < 50: break
@@ -140,14 +142,14 @@ class HitomiDriver(webdriver.Chrome):
     def download_images(self):
         downloader = HitomiDownloader(self.images, self.root)
         downloader.download()
-        self.results += self.images.copy()
         self.images = list()
+        self.results += downloader.results
         self.errors += downloader.errors
 
     def log_json(self, name: str, file: str, filter: Optional[List]=list()):
         path = os.path.join(os.getcwd(), file)
         history = max(*self.urls, str())
-        log = {"history":history, "images":self.results, "errors":self.errors}
+        log = {"history":history, "results":self.results, "errors":self.errors}
         log = {k:v for k,v in log.items() if k in filter} if filter else log
         with open(path, "w", encoding="utf-8") as f:
             json.dump(log, f, ensure_ascii=False, indent=2)
@@ -159,6 +161,7 @@ class HitomiDownloader():
         self.root = Path(path)
         self.root.mkdir(exist_ok=True)
         self.images = images
+        self.results = list()
         self.errors = list()
 
     def download(self, timestamp=False):
@@ -173,7 +176,9 @@ class HitomiDownloader():
         try:
             if b: url = TIMESTAMP_SUB_PATTERN.sub(b, url)
             for i in range(5):
-                if os.path.exists(path): break
+                if os.path.exists(path):
+                    self.results.append({"id":id, "url":url, "path":path})
+                    break
                 if i > 1: url = TIMESTAMP_SUB_PATTERN.sub(fetch_timestamp(id), url)
                 async with session.get(url, headers=HEADERS(url, READER_URL(id))) as response:
                     if response.status != 200:
@@ -186,7 +191,7 @@ class HitomiDownloader():
 
     def log_json(self, name: str, file: str, filter: Optional[List]=list()):
         path = os.path.join(os.getcwd(), file)
-        log = {"images":self.images, "errors":self.errors}
+        log = {"results":self.results, "errors":self.errors}
         log = {k:v for k,v in log.items() if k in filter} if filter else log
         with open(path, "w", encoding="utf-8") as f:
             json.dump(log, f, ensure_ascii=False, indent=2)
@@ -216,7 +221,7 @@ def fetch_timestamp(id: str) -> str:
 
 def run_driver(history=str(), debug=False):
     options = set_chrome_options(debug)
-    name, log, filter = "Download", DOWNLOAD_LOG, ["history", "images", "errors"]
+    name, log, filter = "Download", DOWNLOAD_LOG, ["results", "errors"]
     print("Start requests")
     start = time.time()
     driver = HitomiDriver(path=ROOT, chrome_options=options)
