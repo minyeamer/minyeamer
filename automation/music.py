@@ -35,7 +35,7 @@ HEADERS = lambda url: {
     "sec-fetch-dest": "document",
     "sec-fetch-mode": "navigate",
     "sec-fetch-site": "same-origin",
-    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
+    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
 }
 
 _KT = TypeVar("_KT")
@@ -246,13 +246,13 @@ VOCALOIDS = {
     '#kzn','Fιφne','Flower','Fukase','GUMI','GUMI English','GUMI sweet','Gumi English','IA','IA ROCKS',
     'KAFU','KAITO','Kaori','Ken','Kevin','LOLA','LUMi','Lily','MEIKO','Mew','Minus',
     'ONE','Oliver','Rana','Ruby','Saki AI','VY1','VY1V3','VY1V4','VY2','VY2V3','SeeU','UNI',
-    'flower','kaori','시우','시유','유니','이지음','카일린','さとうささら','ずんだもん','ギャラ子','ギャラ子 NEO',
+    'flower','kaori','시우','시유','유니','이지음','카일린','さとうささら','すずきつづみ','ずんだもん','ギャラ子','ギャラ子 NEO',
     'ダイナミック自演ズ','ネネロボ','マユ','乐正兄妹','乐正绫','乐正龙牙','健音テイ','初音ミク','叁琏','可不',
     '墨清弦','夏色花梨','花隈千冬','夏语遥','天碎瓷','小春六花','巡音ルカ','幻晓伊','弦巻マキ','徴羽摩柯','徵羽摩柯',
     '心华','星尘','星尘Minus','星界','暗鳴ニュイ','東北きりたん','東北ずん子','東北イタコ','桜乃そら','歌愛ユキ',
     '泠鸢','洛天依','海伊','猫村いろは','琴葉茜','琴葉葵','留音ロッカ','神威がくぽ','紲星あかり','結月ゆかり',
     '苍穹','草薙寧々','牧心','言和','诗岸','赤羽','重音テト','鏡音リン','鏡音レン','铃霜','闇音レンリ','青溯',
-    '音街ウナ','香鈴','鳴花ヒメ','鳴花ミコト','鸾明','极光体','狐子','知声','裏命'}
+    '音街ウナ','香鈴','鳴花ヒメ','鳴花ミコト','鸾明','极光体','狐子','知声','裏命','冥鳴ひまり'}
 
 UTAITE = ["歌って", "歌ってみた", "歌いました"]
 
