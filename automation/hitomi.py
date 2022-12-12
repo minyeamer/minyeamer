@@ -114,35 +114,30 @@ class HitomiDriver(webdriver.Chrome):
         for id in tqdm(set(self.urls), desc="Gathering images from urls"):
             self.execute_script(CLEAR_SCRIPT)
             try:
-                self.fetch_images(id)
-                images = self.parse_images(id)
+                images = self.fetch_images(id)
                 if self.download: self.download_images(images)
                 self.images += images
             except Exception as e:
                 self.errors.append({"id":id, "url":GALLERY_URL(id), "path":str(), "error":str(e)})
 
-    def fetch_images(self, id: str):
-        prev = 0
-        for page in range(1, 100):
-            self.get(GALLERY_URL(id, page))
-            self.refresh()
-            time.sleep(1)
-            logs = self.execute_script(LOG_SCRIPT)
-            cur = len([get(log,"name") for log in logs if THUMB_PATTERN.search(get(log,"name"))])
-            if (cur-prev) < 50:
-                self.messages.append(f"{id} has {str(page)} pages and {str(cur)} images")
-                break
-            prev = cur
+    def fetch_images(self, id: str) -> List[Dict]:
+        self.get(GALLERY_URL(id, page=1))
+        self.refresh()
+        time.sleep(1)
+        images = self.parse_images(id)
+        self.messages.append(f"{id} has {str(len(images))} images")
+        return images
 
     def parse_images(self, id: str) -> List[Dict]:
-        images = list()
-        dir = self.get_image_dir(id)
-        logs = self.execute_script(LOG_SCRIPT)
-        thumbs = [re_get(THUMB_PATTERN, get(log,"name")) for log in logs
-                if THUMB_PATTERN.search(get(log,"name"))]
         b = fetch_timestamp(id)
-        for idx, (a, _, _, m1, m2, i, _) in enumerate(thumbs, start=1):
+        dir = self.get_image_dir(id)
+        images, idx = list(), 1
+        for image in self.find_elements(By.CSS_SELECTOR, "img"):
+            thumbs = re_get(THUMB_PATTERN, image.get_attribute("src"))
+            if not thumbs or len(thumbs) != 7: continue
+            a, _, _, m1, m2, i, _ = thumbs
             images.append({"id":id, "url":IMAGE_URL(a,b,int(m1+m2,16),i), "path":str(dir/f"{str(idx)}.webp")})
+            idx += 1
         return images
 
     def get_image_dir(self, id: str) -> Path:
