@@ -19,7 +19,6 @@ from tqdm.asyncio import tqdm
 import asyncio
 import aiohttp
 import aiofiles
-import functools
 import requests
 
 ROOT = os.path.join(os.getcwd(), "downloaded")
@@ -27,9 +26,9 @@ URLS_LOG = "urls.txt"
 DRIVER_LOG = "log.json"
 DOWNLOAD_LOG = "log_image.json"
 
-HEADERS = lambda url, referer=str(): dict({
+HEADERS = lambda url, referer=str(), cookies=str(): dict({
     "authority": urlparse(url).hostname,
-    "accept": "image/avif, image/webp, image/apng, */*",
+    "accept": "image/avif, image/webp, image/apng, bytes, */*",
     "accept-language": "en-US,en;q=0.9,ko-KR;q=0.8,ko;q=0.7",
     "sec-ch-ua": '"Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"',
     "sec-ch-ua-mobile": "?0",
@@ -38,7 +37,7 @@ HEADERS = lambda url, referer=str(): dict({
     "sec-fetch-mode": "navigate",
     "sec-fetch-site": "same-origin",
     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
-}, **({"referer": referer} if referer else dict()))
+}, **({"referer": referer} if referer else dict()), **({"cookie": cookies} if cookies else dict()))
 
 INDEX_URL = lambda page: f"https://hitomi.la/index-korean.html?page={str(page)}"
 GALLERY_PATTERN = re.compile("https://ltn.hitomi.la/galleryblock/(\d+).html")
@@ -149,7 +148,8 @@ class HitomiDriver(webdriver.Chrome):
         return dir
 
     def download_images(self, images: List[Dict]):
-        downloader = HitomiDownloader(images, self.root, loop=False, timeout=DEFAULT_TIMEOUT)
+        cookies = '; '.join([f'{cookie.get("name")}={cookie.get("value")}' for cookie in self.get_cookies()])
+        downloader = HitomiDownloader(images, self.root, loop=True, cookies=cookies, timeout=DEFAULT_TIMEOUT)
         downloader.download()
         self.results += downloader.results
         # self.errors += downloader.errors
@@ -164,10 +164,11 @@ class HitomiDriver(webdriver.Chrome):
 
 
 class HitomiDownloader():
-    def __init__(self, images: List[Dict[str,str]], path: str, loop=True, timeout=0):
+    def __init__(self, images: List[Dict[str,str]], path: str, loop=True, cookies=str(), timeout=None):
         self.root = Path(path)
         self.root.mkdir(exist_ok=True)
         self.loop = loop
+        self.cookies = cookies
         self.timeout = timeout
         self.timestamp = str()
         self.images = images
@@ -179,9 +180,9 @@ class HitomiDownloader():
 
     async def gather_images(self):
         while self.images:
-            self.timestamp = fetch_timestamp()
-            async with aiohttp.ClientSession() as session:
-                await tqdm.gather(*[self.fetch_image(session, **image) for image in self.images], desc="Downloading images")
+            self.timestamp = fetch_timestamp(cookies=self.cookies)
+            async with aiohttp.ClientSession(trust_env=True) as session:
+                await tqdm.gather(*[self.fetch_image(session, ssl=False, **image) for image in self.images], desc="Downloading images")
             if not self.loop: break
             self.log_json("Downloader", DOWNLOAD_LOG)
             self.refresh_images()
@@ -193,7 +194,7 @@ class HitomiDownloader():
             if (os.path.exists(path) and (os.stat(path).st_size > 1024)): return
             url = TIMESTAMP_SUB_PATTERN.sub(self.timestamp, url)
             timeout = {"timeout":self.timeout} if self.timeout else dict()
-            async with session.get(url, headers=HEADERS(url, READER_URL(id)), **timeout) as response:
+            async with session.get(url, headers=HEADERS(url, READER_URL(id), self.cookies), **timeout) as response:
                 if response.status == 200:
                     async with aiofiles.open(path, mode='wb') as f:
                         await f.write(await response.read())
@@ -239,9 +240,9 @@ def set_chrome_options(debug=False) -> Options:
     return options
 
 
-def fetch_timestamp(id=str()) -> str:
+def fetch_timestamp(id=str(), cookies=str()) -> str:
     referer = GALLERY_URL(id) if id else str()
-    response = requests.get(TIMESTAMP_URL, headers=HEADERS(TIMESTAMP_URL, referer))
+    response = requests.get(TIMESTAMP_URL, headers=HEADERS(TIMESTAMP_URL, referer, cookies))
     return re_get(TIMESTAMP_PATTERN, response.text)
 
 
