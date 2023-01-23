@@ -1,3 +1,4 @@
+from __future__ import annotations
 from typing import Any, Dict, List, Optional, Union
 from pathlib import Path
 from urllib.parse import urlparse
@@ -65,6 +66,13 @@ def re_get(pattern: Union[re.Pattern,str], string: str) -> Union[List[str],str]:
     match = pattern.search(string)
     return (match.groups() if len(match.groups())>1 else match[1]) if match else str()
 
+def unique(*elements, empty=False, **kwargs) -> List:
+    array = list()
+    for element in elements:
+        if not (empty or element): continue
+        if element not in array: array.append(element)
+    return array
+
 
 class HitomiDriver(webdriver.Chrome):
     def __init__(self, path: str, urls: Optional[List[str]]=list(), history=str(), download=True, **kwargs):
@@ -94,7 +102,7 @@ class HitomiDriver(webdriver.Chrome):
             for log in logs:
                 id = re_get(GALLERY_PATTERN, get(log,"name"))
                 if id == history:
-                    if self.urls: self.history = self.urls[0]
+                    if self.urls: self.history = self.urls[-1]
                     return self.save_urls()
                 if id: self.urls.append(id)
 
@@ -110,12 +118,14 @@ class HitomiDriver(webdriver.Chrome):
         self.messages.append(f"saved {str(len(self.urls))} urls")
 
     def gather_images(self):
-        for id in tqdm(set(self.urls), desc="Gathering images from urls"):
-            self.execute_script(CLEAR_SCRIPT)
+        for id in tqdm(unique(*self.urls)[::-1], desc="Gathering images from urls"):
             try:
                 images = self.fetch_images(id)
                 if self.download: self.download_images(images)
+                self.clear_urls(id)
                 self.images += images
+            except KeyboardInterrupt as e:
+                self.errors.append({"id":id, "url":GALLERY_URL(id), "path":str(), "error":str(e)})
             except Exception as e:
                 self.errors.append({"id":id, "url":GALLERY_URL(id), "path":str(), "error":str(e)})
 
@@ -154,12 +164,18 @@ class HitomiDriver(webdriver.Chrome):
         self.results += downloader.results
         # self.errors += downloader.errors
 
+    def clear_urls(self, id: str):
+        with open(URLS_LOG, "r", encoding="utf-8") as f:
+            urls = f.read().split('\n')
+        with open(URLS_LOG, "w", encoding="utf-8") as f:
+            f.write('\n'.join([url for url in urls if url != id]))
+
     def log_json(self, name: str, file: str, filter: Optional[List]=list()):
         filter = filter if filter else ["images","messages","errors"]
         filter = ["history"]+filter if self.history else filter
         logs = {k:v for k,v in self.__dict__.items() if k in filter}
         with open(file, "w", encoding="utf-8") as f:
-            json.dump(logs, f, ensure_ascii=False, indent=2, default=(lambda _:"Non-serializable text"))
+            json.dump(logs, f, ensure_ascii=False, indent=2, default=str)
         print(f"{name} log saved at {file}")
 
 
@@ -221,7 +237,7 @@ class HitomiDownloader():
         filter = filter if filter else ["results","errors"]
         log = {k:v for k,v in self.__dict__.items() if k in filter}
         with open(file, "w", encoding="utf-8") as f:
-            json.dump(log, f, ensure_ascii=False, indent=2, default=(lambda _:"Non-serializable text"))
+            json.dump(log, f, ensure_ascii=False, indent=2, default=str)
         print(f"{name} log saved at {file}")
 
 
@@ -251,10 +267,14 @@ def run_driver(history=str(), download=False, debug=False):
     print("Start requests")
     start = time.time()
     driver = HitomiDriver(path=ROOT, history=history, download=download, chrome_options=options)
-    if history: driver.fetch_urls()
-    else: driver.read_urls()
-    driver.gather_images()
-    driver.log_json("Driver", DRIVER_LOG)
+    try:
+        if history: driver.fetch_urls()
+        else: driver.read_urls()
+        driver.gather_images()
+        driver.log_json("Driver", DRIVER_LOG)
+    except KeyboardInterrupt as interrupt:
+        driver.log_json("Driver", DRIVER_LOG)
+        raise interrupt
     images = driver.images.copy()
     driver.close()
     run_downloader(images)
