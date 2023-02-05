@@ -102,7 +102,7 @@ class HitomiDriver(webdriver.Chrome):
             for log in logs:
                 id = re_get(GALLERY_PATTERN, get(log,"name"))
                 if id == history:
-                    if self.urls: self.history = self.urls[-1]
+                    if self.urls: self.history = max(map(int,self.urls))
                     return self.save_urls()
                 if id: self.urls.append(id)
 
@@ -121,9 +121,10 @@ class HitomiDriver(webdriver.Chrome):
         for id in tqdm(unique(*self.urls)[::-1], desc="Gathering images from urls"):
             try:
                 images = self.fetch_images(id)
-                if self.download: self.download_images(images)
+                if len(images) < 300:
+                    if self.download: self.download_images(images)
+                    self.images += images
                 self.clear_urls(id)
-                self.images += images
             except KeyboardInterrupt as e:
                 self.errors.append({"id":id, "url":GALLERY_URL(id), "path":str(), "error":str(e)})
             except Exception as e:
