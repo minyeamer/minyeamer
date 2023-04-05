@@ -74,36 +74,36 @@ Here are some ideas to get you started:
 <tr id="first_line">
   <td>
     <a href="https://github.com/minyeamer/auto-rating" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=auto-rating&theme=dark" />
+      <img align="middle" src="https://github-readme-stats-l3hnvqpt8-minyeamer.vercel.app/api/pin/?username=minyeamer&repo=auto-rating&theme=dark" />
     </a>
   </td>
   <td>
     <a href="https://github.com/minyeamer/dinut" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=dinut&theme=dark" />
+      <img align="middle" src="https://github-readme-stats-l3hnvqpt8-minyeamer.vercel.app/api/pin/?username=minyeamer&repo=dinut&theme=dark" />
     </a>
   </td>
 </tr>
 <tr id="second_line">
   <td>
     <a href="https://github.com/minyeamer/audio-mnist" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=audio-mnist&theme=dark" />
+      <img align="middle" src="https://github-readme-stats-l3hnvqpt8-minyeamer.vercel.app/api/pin/?username=minyeamer&repo=audio-mnist&theme=dark" />
     </a>
   </td>
   <td>
     <a href="https://github.com/minyeamer/gourmaid" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=gourmaid&theme=dark" />
+      <img align="middle" src="https://github-readme-stats-l3hnvqpt8-minyeamer.vercel.app/api/pin/?username=minyeamer&repo=gourmaid&theme=dark" />
     </a>
   </td>
 </tr>
 <tr id="third_line">
   <td>
     <a href="https://github.com/minyeamer/credit-now" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=credit-now&theme=dark" />
+      <img align="middle" src="https://github-readme-stats-l3hnvqpt8-minyeamer.vercel.app/api/pin/?username=minyeamer&repo=credit-now&theme=dark" />
     </a>
   </td>
   <td>
     <a href="https://github.com/minyeamer/recruit-pirates" target="_blank">
-      <img align="middle" src="https://github-readme-stats.vercel.app/api/pin/?username=minyeamer&repo=recruit-pirates&theme=dark" />
+      <img align="middle" src="https://github-readme-stats-l3hnvqpt8-minyeamer.vercel.app/api/pin/?username=minyeamer&repo=recruit-pirates&theme=dark" />
     </a>
   </td>
 </tr>
@@ -113,9 +113,9 @@ Here are some ideas to get you started:
 <h3 align="center">‍💫 Status ‍💫</h3>
 <p align="center">
   <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">
-    <img align="middle" width="52%" src="https://github-readme-stats.vercel.app/api?username=minyeamer&layout=compact&show_icons=true&theme=dark" />
+    <img align="middle" width="52%" src="https://github-readme-stats-l3hnvqpt8-minyeamer.vercel.app/api?username=minyeamer&layout=compact&show_icons=true&theme=dark" />
   </a>&nbsp&nbsp
   <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">
-    <img align="middle" width="43%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=minyeamer&layout=compact&theme=vision-friendly-dark&hide=jupyter%20notebook" />
+    <img align="middle" width="43%" src="https://github-readme-stats-l3hnvqpt8-minyeamer.vercel.app/api/top-langs/?username=minyeamer&layout=compact&theme=vision-friendly-dark&hide=jupyter%20notebook" />
   </a>
 </p>
