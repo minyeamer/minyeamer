@@ -6,6 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import re
+import time
 
 from ast import literal_eval
 from contextlib import suppress
@@ -73,6 +74,7 @@ class YtDlpDownloader:
                 error_msg = ' '.join(traceback.format_exception(*sys.exc_info()))
                 error_msg = error_msg.replace('\\','\\\\').replace('\n','\\n').replace('\"','\\"')
                 self.errors.append({"url":url, "error":error_msg})
+            time.sleep(1)
         session.close()
         self.save_results()
         self.logger.fit_json_log()
@@ -89,10 +91,10 @@ class YtDlpDownloader:
 
     def tag(self, info: Dict[str,str]):
         title = info.get("title").replace(' ','')
-        mp3file = [file for file in os.listdir() if file.endswith(".mp3")]
-        mp3file += [file for file in os.listdir() if title in file and file.endswith(".mp3")]
-        if mp3file:
-            mp3file = mp3file.pop()
+        mp3files = [file for file in os.listdir() if file.endswith(".mp3")]
+        mp3files += [file for file in os.listdir() if title in file and file.endswith(".mp3")]
+        if mp3files:
+            mp3file = mp3files[-1]
             audiofile = eyed3.load(mp3file)
             audiofile.tag.title = info.get("title")
             audiofile.tag.artist = info.get("artist")
@@ -104,6 +106,7 @@ class YtDlpDownloader:
                 image = self.fetch_image(url=info.get("thumb"), file=IMAGE_DIR+re.sub(".mp3",".jpg",mp3file))
                 audiofile.tag.images.set(type_=3, img_data=image, mime_type="image/jpeg")
             audiofile.tag.save()
+        for mp3file in set(mp3files):
             shutil.move(mp3file, re.sub("\s*\[[^]]*\]\.mp3$", ".mp3", DOWNLOAD_DIR+mp3file))
 
     def fetch_image(self, url: str, file: str) -> bytes:
@@ -242,17 +245,19 @@ class CustomLogger(logging.Logger):
             f.writelines(log)
 
 
-VOCALOIDS = {
-    '#kzn','Fιφne','Flower','Fukase','GUMI','GUMI English','GUMI sweet','Gumi English','IA','IA ROCKS',
-    'KAFU','KAITO','Kaori','Ken','Kevin','LOLA','LUMi','Lily','MEIKO','Mew','Minus',
-    'ONE','Oliver','Rana','Ruby','Saki AI','VY1','VY1V3','VY1V4','VY2','VY2V3','SeeU','UNI',
-    'flower','kaori','시우','시유','유니','이지음','카일린','さとうささら','すずきつづみ','ずんだもん','ギャラ子','ギャラ子 NEO',
-    'ダイナミック自演ズ','ネネロボ','マユ','乐正兄妹','乐正绫','乐正龙牙','健音テイ','初音ミク','叁琏','可不',
-    '墨清弦','夏色花梨','花隈千冬','夏语遥','天碎瓷','小春六花','巡音ルカ','幻晓伊','弦巻マキ','徴羽摩柯','徵羽摩柯',
-    '心华','星尘','星尘Minus','星界','暗鳴ニュイ','東北きりたん','東北ずん子','東北イタコ','桜乃そら','歌愛ユキ',
-    '泠鸢','洛天依','海伊','猫村いろは','琴葉茜','琴葉葵','留音ロッカ','神威がくぽ','紲星あかり','結月ゆかり',
-    '苍穹','草薙寧々','牧心','言和','诗岸','赤羽','重音テト','鏡音リン','鏡音レン','铃霜','闇音レンリ','青溯',
-    '音街ウナ','香鈴','鳴花ヒメ','鳴花ミコト','鸾明','极光体','狐子','知声','裏命','冥鳴ひまり','神威がくぽ'}
+VOCALOIDS = [
+    '#kzn', 'AiSuu', 'Flower', 'Fukase', 'Fιφne', 'GUMI', 'GUMI English', 'GUMI sweet', 'Gumi English',
+    'IA', 'IA ROCKS', 'KAFU', 'KAITO', 'Kaora', 'Kaori', 'Ken', 'Kevin', 'LOLA', 'LUMi', 'Lily', 'MEIKO',
+    'Mai', 'Mew', 'Minus', 'ONE', 'Oliver', 'POPY', 'Rana', 'Ruby', 'Saki AI', 'SeeU', 'UNI', 'VY1',
+    'VY1V3', 'VY1V4', 'VY2', 'VY2V3', 'flower', 'kaori', '시우', '시유', '유니', '이지음', '카일린',
+    'さとうささら', 'すずきつづみ', 'すずきつづみ', 'ずんだもん', 'ついなちゃん', 'ギャラ子', 'ギャラ子 NEO', 'ダイナミック自演ズ',
+    'ネネロボ', 'マユ', '东方栀子', '乐正兄妹', '乐正绫', '乐正龙牙', '健音テイ', '冥鳴ひまり', '初音ミク', '叁琏', '可不',
+    '墨清弦', '夏色花梨', '夏语遥', '天碎瓷', '宮下遊', '小春六花', '巡音ルカ', '幻晓伊', '弦巻マキ', '徴羽摩柯', '徵羽摩柯',
+    '心华', '星尘', '星尘Infinity', '星尘Minus', '星界', '暗鳴ニュイ', '東北きりたん', '東北ずん子', '東北イタコ', '极光体',
+    '桜乃そら', '歌愛ユキ', '泠鸢', '洛天依', '海伊', '牧心', '狐子', '狐狸座', '猫村いろは', '琴葉茜', '琴葉葵',
+    '留音ロッカ', '知声', '神威がくぽ', '神威がくぽ', '紲星あかり', '結月ゆかり', '羽累', '花隈千冬', '苍穹', '草薙寧々',
+    '裏命', '言和', '诗岸', '赤羽', '重音テト', '鏡音リン', '鏡音レン', '铃霜', '闇音レンリ', '青溯', '音街ウナ', '香鈴',
+    '鳴花ヒメ', '鳴花ミコト', '鸾明']
 
 UTAITE = ["歌って", "歌ってみた", "歌いました"]
 

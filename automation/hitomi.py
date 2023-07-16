@@ -152,9 +152,11 @@ class HitomiDriver(webdriver.Chrome):
 
     def get_image_dir(self, id: str) -> Path:
         title = self.find_element(By.CSS_SELECTOR, "h1#gallery-brand").text
-        artist = self.find_element(By.CSS_SELECTOR, "h2#artists").text
-        artist = f"[{artist}]" if 'N/A' not in artist else str()
-        dir = self.root / INVALID_PATTERN.sub('', ' '.join([artist,title,f"({id})"])).strip()
+        artists = self.find_element(By.CSS_SELECTOR, "h2#artists")
+        artists = [x for x in map(lambda x: x.text, artists.find_elements(By.CSS_SELECTOR, "li")) if x]
+        artists = ', '.join(artists[:3]+["etc"] if len(artists) > 3 else artists)
+        artists = str() if not artists or 'N/A' in artists else f"[{artists}]"
+        dir = self.root / INVALID_PATTERN.sub('', ' '.join([artists,title,f"({id})"])).strip()
         dir.mkdir(exist_ok=True)
         return dir
 
