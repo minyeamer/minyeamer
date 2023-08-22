@@ -126,7 +126,9 @@ class HitomiDriver(webdriver.Chrome):
                     self.images += images
                 self.clear_urls(id)
             except KeyboardInterrupt as e:
-                self.errors.append({"id":id, "url":GALLERY_URL(id), "path":str(), "error":str(e)})
+                input("Press ENTER or type command to continue")
+                self.clear_urls(id)
+                continue
             except Exception as e:
                 self.errors.append({"id":id, "url":GALLERY_URL(id), "path":str(), "error":str(e)})
 
@@ -152,6 +154,7 @@ class HitomiDriver(webdriver.Chrome):
 
     def get_image_dir(self, id: str) -> Path:
         title = self.find_element(By.CSS_SELECTOR, "h1#gallery-brand").text
+        print(title)
         artists = self.find_element(By.CSS_SELECTOR, "h2#artists")
         artists = [x for x in map(lambda x: x.text, artists.find_elements(By.CSS_SELECTOR, "li")) if x]
         artists = ', '.join(artists[:3]+["etc"] if len(artists) > 3 else artists)
