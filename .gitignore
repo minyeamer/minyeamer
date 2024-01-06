@@ -117,8 +117,3 @@ __MACOSX/
 ~$*.docx
 ~$*.pptx
 ~$*.xlsx
-
-# user temp files
-temp/
-debug.ipynb
-debug.sh
