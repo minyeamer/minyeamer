@@ -63,6 +63,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
+<!--
 <br>
 <h3 align="center">📑 Repositories 📑</h3>
 
@@ -138,3 +139,4 @@ Here are some ideas to get you started:
     <img align="middle" width="43%" src="https://github-readme-stats-l3hnvqpt8-minyeamer.vercel.app/api/top-langs/?username=minyeamer&layout=compact&theme=vision-friendly-dark&hide=jupyter%20notebook" />
   </a>
 </p>
+-->
