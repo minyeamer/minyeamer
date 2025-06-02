@@ -9,28 +9,27 @@
   <img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=Pandas&logoColor=white"/></a>&nbsp
   <img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=NumPy&logoColor=white"/></a>&nbsp
   <img src="https://img.shields.io/badge/matplotlib-11557c?style=flat-square&logo=plotly&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/R-ggplot2-blue?style=flat&labelColor=white&logo=r&logoColor=blue"/></a>&nbsp
 </p>
 
 <h4 id="server" align="center">🧠 Framework & Server 🧠</h4>
 <p align="center">
   <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat-square&logo=GoogleCloud&logoColor=white"/></a>&nbsp
   <img src="https://img.shields.io/badge/Google%20BigQuery-4285F4?style=flat-square&logo=Google&logoColor=white"/></a>&nbsp
-  <img src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=ApacheAirflow&logoColor=white"/></a>&nbsp
-  <img src="https://img.shields.io/badge/Shell-FFD500?style=flat-square&logo=Shell&logoColor=black"/></a>&nbsp
+  <img src="https://img.shields.io/badge/Apache%20Airflow-017CEE?style=flat-square&logo=Apache%20Airflow&logoColor=white"/></a>&nbsp
   <br>
-  <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=Streamlit&logoColor=black"/></a>&nbsp
-  <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/Shell-FFD500?style=flat-square&logo=Shell&logoColor=black"/></a>&nbsp
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/></a>&nbsp
-  <img src="https://img.shields.io/badge/MySQL-E6B91E?style=flat-square&logo=MySql&logoColor=black"/></a>&nbsp
+  <img src="https://img.shields.io/badge/postgresql-316192?style=flat-square&logo=postgresql&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white"/></a>&nbsp
 </p>
 
 <h4 id="lang" align="center">👾 Programming Language 👾</h4>
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3766AB?style=flat-square&logo=Python&logoColor=white"/></a>&nbsp
-  <img src="https://img.shields.io/badge/SQL-4053D6?style=flat-square&logo=AmazonDynamoDB&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/SQL-CC2927?style=flat-square&logo=AmazonDynamoDB&logoColor=white"/></a>&nbsp
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black"/></a>&nbsp
-  <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=html5&logoColor=white"/></a>&nbsp
-  <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css3&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/R-276DC3?style=flat-square&logo=R&logoColor=white"/></a>&nbsp
   <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=C%2B%2B&logoColor=white"/></a>&nbsp
 </p>
 
@@ -45,9 +44,10 @@
 <h4 id="tools" align="center">✨ Tools ✨</h4>
 <p align="center">
   <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/perplexity-000000?style=flat-square&logo=perplexity&logoColor=088F8F"/></a>&nbsp
   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat-square&logo=VisualStudioCode&logoColor=white"/></a>&nbsp
-  <img src="https://img.shields.io/badge/Photoshop-31A8FF?style=flat-square&logo=adobephotoshop&logoColor=white"/></a>&nbsp
-  <img src="https://img.shields.io/badge/Logic Pro-000000?style=flat-square&logo=apple&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/Notion-%23000000.svg?style=flat-square&logo=notion&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/Gimp-657D8B?style=flat-square&logo=gimp&logoColor=FFFFFF"/></a>&nbsp
 </p>
 
 <!--
