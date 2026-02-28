@@ -63,8 +63,9 @@
   &nbsp
   <a href="https://expressjs.com/" target="_blank"><img src="https://img.shields.io/badge/express.js-000000?style=flat-square&logo=express&logoColor=white"/></a>
   &nbsp
-  <a href="https://supabase.com/" target="_blank"><img src="https://img.shields.io/badge/supabase-black?style=flat-square&logo=supabase"/></a>
+  <a href="https://fastapi.tiangolo.com/" target="_blank"><img src="https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi&logoColor=white"/></a>
   &nbsp
+  <a href="https://supabase.com/" target="_blank"><img src="https://img.shields.io/badge/supabase-black?style=flat-square&logo=supabase"/></a>
 </p>
 
 <h4 id="mldl" align="center">🤖 ML/DL Tools 🤖</h4>
