@@ -12,11 +12,11 @@
   &nbsp
   <a href="https://www.postgresql.org/" target="_blank"><img src="https://img.shields.io/badge/postgresql-316192?style=flat-square&logo=postgresql&logoColor=white"/></a>
   <br>
+  <a href="https://cloud.google.com/" target="_blank"><img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white"/></a>
+  &nbsp
   <a href="https://kafka.apache.org/" target="_blank"><img src="https://img.shields.io/badge/Apache%20Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white"/></a>
   &nbsp
   <a href="https://spark.apache.org/" target="_blank"><img src="https://img.shields.io/badge/Apache%20Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=yellow"/></a>
-  &nbsp
-  <a href="https://cloud.google.com/" target="_blank"><img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white"/></a>
 </p>
 
 <h4 id="da" align="center">📊 Data Analytics Tools 📊</h4>
@@ -46,17 +46,35 @@
   &nbsp
   <img src="https://img.shields.io/badge/SQL-003B57?style=flat-square&logo=sqlite&logoColor=white"/>
   &nbsp
-  <a href="https://www.shellscript.sh/" target="_blank"><img src="https://img.shields.io/badge/Shell-FFD500?style=flat-square&logo=shell&logoColor=black"/></a>
+  <a href="https://www.typescriptlang.org/" target="_blank"><img src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square"/></a>
   &nbsp
   <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript" target="_blank"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/></a>
+  &nbsp
+  <a href="https://www.shellscript.sh/" target="_blank"><img src="https://img.shields.io/badge/Shell-FFD500?style=flat-square&logo=shell&logoColor=black"/></a>
   &nbsp
   <a href="https://www.r-project.org/" target="_blank"><img src="https://img.shields.io/badge/R-276DC3?style=flat-square&logo=r&logoColor=white"/></a>
   &nbsp
   <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white"/>
 </p>
 
+<h4 id="mldl" align="center">🗄️ Backend Tools 🗄️</h4>
+<p align="center">
+  <a href="https://nodejs.org/en" target="_blank"><img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white"/></a>
+  &nbsp
+  <a href="https://expressjs.com/" target="_blank"><img src="https://img.shields.io/badge/express.js-000000?style=flat-square&logo=express&logoColor=white"/></a>
+  &nbsp
+  <a href="https://supabase.com/" target="_blank"><img src="https://img.shields.io/badge/supabase-black?style=flat-square&logo=supabase"/></a>
+  &nbsp
+</p>
+
 <h4 id="mldl" align="center">🤖 ML/DL Tools 🤖</h4>
 <p align="center">
+  <a href="https://github.com/features/copilot" target="_blank"><img src="https://img.shields.io/badge/GitHub%20Copilot-181717?logo=github&logoColor=white"/></a>
+  &nbsp
+  <a href="https://www.perplexity.ai/" target="_blank"><img src="https://img.shields.io/badge/perplexity-000000?style=flat-square&logo=perplexity&logoColor=088F8F"/></a>
+  &nbsp
+  <a href="https://claude.com/product/claude-code" target="_blank"><img src="https://img.shields.io/badge/Claude%20Code-555?style=flat-square&logo=claude"/></a>
+  <br>
   <a href="https://pytorch.org/" target="_blank"><img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white"/></a>
   &nbsp
   <a href="https://www.tensorflow.org/" target="_blank"><img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white"/></a>
@@ -74,11 +92,9 @@
   &nbsp
   <a href="https://code.visualstudio.com/" target="_blank"><img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat-square&logo=xcode&logoColor=white"/></a>
   &nbsp
-  <a href="https://n8n.io/" target="_blank"><img src="https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white"/></a>
+  <a href="https://www.ffmpeg.org/" target="_blank"><img src="https://img.shields.io/badge/FFmpeg-676767?style=flat-square&logo=ffmpeg&logoColor=white"/></a>
   &nbsp
-  <a href="https://www.perplexity.ai/" target="_blank"><img src="https://img.shields.io/badge/perplexity-000000?style=flat-square&logo=perplexity&logoColor=088F8F"/></a>
-  &nbsp
-  <a href="https://www.notion.so/" target="_blank"><img src="https://img.shields.io/badge/Notion-%23000000?style=flat-square&logo=notion&logoColor=white"/></a>
+  <a href="https://gohugo.io/" target="_blank"><img src="https://img.shields.io/badge/Hugo-black?style=flat-square&logo=Hugo"/></a>
 </p>
 
 <!--
