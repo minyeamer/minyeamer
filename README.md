@@ -6,13 +6,13 @@
 <p align="center">
   <a href="https://airflow.apache.org/" target="_blank"><img src="https://img.shields.io/badge/Apache%20Airflow-017CEE?style=flat-square&logo=ApacheAirflow&logoColor=white"/></a>
   &nbsp
-  <a href="https://www.getdbt.com/" target="_blank"><img src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&logo=dbt&logoColor=white"/></a>
+  <a href="https://www.getdbt.com/" target="_blank"><img src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&logo=dblp&logoColor=white"/></a>
+  &nbsp
+  <a href="https://www.postgresql.org/" target="_blank"><img src="https://img.shields.io/badge/postgresql-316192?style=flat-square&logo=postgresql&logoColor=white"/></a>
   &nbsp
   <a href="https://www.docker.com/" target="_blank"><img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/></a>
   &nbsp
   <a href="https://kubernetes.io/" target="_blank"><img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white"/></a>
-  &nbsp
-  <a href="https://www.postgresql.org/" target="_blank"><img src="https://img.shields.io/badge/postgresql-316192?style=flat-square&logo=postgresql&logoColor=white"/></a>
   <br>
   <a href="https://cloud.google.com/" target="_blank"><img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white"/></a>
   &nbsp
@@ -72,11 +72,13 @@
 
 <h4 id="mldl" align="center">🤖 ML/DL Tools 🤖</h4>
 <p align="center">
-  <a href="https://github.com/features/copilot" target="_blank"><img src="https://img.shields.io/badge/GitHub%20Copilot-181717?logo=github&logoColor=white"/></a>
-  &nbsp
-  <a href="https://www.perplexity.ai/" target="_blank"><img src="https://img.shields.io/badge/perplexity-000000?style=flat-square&logo=perplexity&logoColor=088F8F"/></a>
+  <a href="https://openai.com/codex/" target="_blank"><img src="https://custom-icon-badges.demolab.com/badge/Codex-58A6FF?logo=openai&logoColor=white"/></a>
   &nbsp
   <a href="https://claude.com/product/claude-code" target="_blank"><img src="https://img.shields.io/badge/Claude%20Code-555?style=flat-square&logo=claude"/></a>
+  &nbsp
+  <a href="https://github.com/features/copilot" target="_blank"><img src="https://img.shields.io/badge/GitHub%20Copilot-181717?logo=github&logoColor=white"/></a>
+  &nbsp
+  <a href="https://gemini.google/" target="_blank"><img src="https://img.shields.io/badge/Google%20Gemini-886FBF?logo=googlegemini&logoColor=fff"/></a>
   <br>
   <a href="https://pytorch.org/" target="_blank"><img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white"/></a>
   &nbsp
